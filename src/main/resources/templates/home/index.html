@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WishVault</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<section class="hero">
+    <h2 class="hero-title">Make a Wish Upon the Wishing Vault</h2>
+    <p class="hero-text">Write down your wish and let it soar among the clouds.</p>
+    <div class="wish-form">
+        <div class="wish-form-textarea">
+            <form th:action="@{/searchWish}" method="post">
+                <label for="wish">Enter your wish:</label>
+                <input type="text" id="wish" name="wish" placeholder="Write your wish here...">
+                <button type="submit">Search Wish</button>
+            </form>
+        </div>
+    </div>
+    <p class="hero-text"></p>
+    <div class="login-signup-buttons">
+        <a th:href="@{/login}">
+            <button type="button">Login</button>
+        </a>
+    </div>
+</section>
+</body>
+</html>
