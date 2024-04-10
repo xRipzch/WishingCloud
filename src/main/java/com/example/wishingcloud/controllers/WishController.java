@@ -1,4 +1,4 @@
-package com.example.wishingcloud.Controller;
+package com.example.wishingcloud.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -7,6 +7,19 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
+<table>
+
+    <thead>
+    <td>ID    </td> <td>Title</td> <td> Release year</td> <td>Description</td> <td>Tags</td> <td> Update</td>  <td>Delete</td>  </thead>
+    <tr th:each ="user :  ${users} ">
+        <td th:text = "${user.userId}"> </td>
+        <td th:text = "${user.firstName}"> </td>
+        <td th:text = "${user.lastName}"> </td>
+        <td th:text = "${user.email}"> </td>
+        <td th:text = "${user.address}"> </td>
+
+</table>
+ </thead>
 <section class="hero">
     <h2 class="hero-title">Make a Wish Upon the Wishing Vault</h2>
     <p class="hero-text">Write down your wish and let it soar among the clouds.</p>
@@ -27,6 +40,9 @@
         <a th:href="@{/signup}">
             <button type="button">Sign Up</button>
         </a>
+        <form th:action="@{test}" method="get">
+            <button type="submit">Click me</button>
+        </form>
     </div>
 </section>
 </body>
