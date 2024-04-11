@@ -2,6 +2,7 @@ package com.example.wishingcloud.repositories;
 
 import com.example.wishingcloud.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -33,15 +34,18 @@ public class UserRepository {
         return jdbcTemplate.queryForObject(query, rowMapper, userId);
 
     }
-
-    public String checkPass(String email) {
-        String query = "SELECT password FROM users WHERE email = ?;";
-        return jdbcTemplate.queryForObject(query, String.class, email);
-        //String query = "SELECT password FROM users WHERE email = ?;";
-        //RowMapper<String> rowMapper = new BeanPropertyRowMapper<>(String.class);
-        //return jdbcTemplate.query(query, rowMapper, email);
-
+    public Integer getUserID(String email) {
+        String query = "SELECT user_id FROM users WHERE email = ?;";
+        return jdbcTemplate.queryForObject(query, Integer.class, email);
     }
 
+    public String checkPass(String email) {
+        try {
+            String query = "SELECT password FROM users WHERE email = ?;";
+            return jdbcTemplate.queryForObject(query, String.class, email);
+        } catch (EmptyResultDataAccessException e) {
+            return "UserNotFound";
+        }
+    }
 
 }
