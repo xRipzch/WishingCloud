@@ -14,15 +14,20 @@ public class ValidateController {
     @Autowired
     UserService userService;
 
+
+
     @PostMapping("/validate")
     // todo rewrite method to match username with given pass and pass in DB to check if user is legit.
     public String validate(Model model, @RequestParam String email, @RequestParam String password) {
-        if (userService.checkPass(email, password)) {
-            model.addAttribute("message", "Right!");
+        if (userService.checkPass(email, password).equals("UserApproved")) {
+            model.addAttribute("user", userService.getUser(userService.getUserID(email)));
             return "home/homepage";
-        } else model.addAttribute("message", "Wrong!");
+        } else if (userService.checkPass(email, password).equals("NoUserFound")) {
+            model.addAttribute("error", "This email does not exist in the database");
+            return "home/login";
+        } else {
+            model.addAttribute("error", "Wrong password");
+        }
         return "home/login";
-
-
     }
 }
