@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
 <!--todo create homepage where user can create a new wish list  -->
+<section class="hero" >
+ <h1  class="hero-title"> Welcome  </h1>  <p class="hero-text" th:text = "${user.firstName}" > </p>
+    <div class="wish-form-textarea">
+    <h2 class="wishing-cloud"> Create a new wish list </h2>
+    <form class="wish-form" action ="/createWishlist" method="post">
+        <label  for ="name" > name </label>
+        <input class="form" type = "text" id = "name" name="wishlistName">
+        <div class="login-signup-buttons">
+        <input  type = "submit" value="Create" >
 
- <h1> Welcome </h1>  <p th:text = "${user.firstName}" > </p>
+        </div>
+    </form>
+</div>
+</section>
 </body>
 </html>
 
