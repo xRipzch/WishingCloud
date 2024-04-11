@@ -30,20 +30,22 @@
             </div>
             <div class="input-group">
                 <label for="DOB">Date of Birth</label>
-                <input type="date" id="DOB" name="dateOfBirth" placeholder="Date of Birth..." required>
-            </div>
-            <div class="input-group">
-                <label for="GenderMale">Male:</label>
-                <input type="radio" id="GenderMale" name="gender" value="m">
-                <label for="GenderFemale">Female:</label>
-                <input type="radio" id="GenderFemale" name="gender" value="f">
+                <input type="text" id="DOB" name="dateOfBirthString" placeholder="YYYY-MM-DD" required
+                       pattern="\d{4}-\d{2}-\d{2}">
             </div>
 
+            <div class="input-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="O">Other</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
             <div class="input-group">
                 <label for="Password">Password</label>
                 <input type="password" id="Password" name="password" placeholder="hunter2" required>
             </div>
-
             <button type="submit">Submit</button>
         </form>
         <p>Already have an account? <a th:href="@{/login}">

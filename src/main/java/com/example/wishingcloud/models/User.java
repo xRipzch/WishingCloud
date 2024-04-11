@@ -10,13 +10,13 @@ public class User {
     private LocalDate dateOfBirth;
     private String email;
     private String address;
-    private char gender;
+    private String gender;
     private String password;
 
     public User() {  //empty for Spring DI and IOC MAGIC BABY
     }
 
-    public User(int userId, String firstName, String lastName, LocalDate dateOfBirth, String email, String address, char gender, String password) {
+    public User(int userId, String firstName, String lastName, LocalDate dateOfBirth, String email, String address, String gender, String password) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -73,11 +73,11 @@ public class User {
         this.email = email;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
