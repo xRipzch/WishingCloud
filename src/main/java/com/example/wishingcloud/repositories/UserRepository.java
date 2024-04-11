@@ -18,9 +18,21 @@ public class UserRepository {
     public void addUser(User u) {
         String sql = "INSERT INTO users (first_name, last_name, email, password, address, gender, date_of_birth)" +
                 " VALUES (?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, u.getFirstName(),u.getLastName(),u.getEmail(),u.getAddress(),
-                u.getDateOfBirth(),u.getGender(),u.getPassword());
+
+        String genderValue = u.getGender();
+        if ("m".equals(genderValue)) {
+            genderValue = "Male";
+        } else if ("f".equals(genderValue)) {
+            genderValue = "Female";
+        }
+
+        String formattedDateOfBirth = u.getDateOfBirth().toString(); // Format: "yyyy-MM-dd"
+
+        jdbcTemplate.update(sql, u.getFirstName(), u.getLastName(), u.getEmail(), u.getPassword(), u.getAddress(),
+                genderValue, formattedDateOfBirth);
     }
+
+
 
     public List<User> getUsers() { // TODO SKAL ÆNDRES??
         String sql = "SELECT * FROM users";
