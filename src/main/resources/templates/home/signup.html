@@ -13,29 +13,28 @@
         <h1> Ready for adventure? Sign up now!</h1>
         <form th:action="@{/signup}" method="post" class="login-frame">
             <div class="input-group">
-                <label for="first_name">First name</label>
+                <label for="first_name"></label>
                 <input type="text" id="first_name" name="firstName" placeholder="First name..." required>
             </div>
             <div class="input-group">
-                <label for="last_name">Last name:</label>
+                <label for="last_name"></label>
                 <input type="text" id="last_name" name="lastName" placeholder="Last name..." required>
             </div>
             <div class="input-group">
-                <label for="email">Email:</label>
+                <label for="email"></label>
                 <input type="email" id="email" name="email" placeholder="Email..." required>
             </div>
             <div class="input-group">
-                <label for="address">Address:</label>
+                <label for="address"></label>
                 <input type="text" id="address" name="address" placeholder="Address..." required>
             </div>
             <div class="input-group">
-                <label for="DOB">Date of Birth</label>
+                <label for="DOB"></label>
                 <input type="text" id="DOB" name="dateOfBirthString" placeholder="YYYY-MM-DD" required
                        pattern="\d{4}-\d{2}-\d{2}">
             </div>
-
             <div class="input-group">
-                <label for="gender">Gender:</label>
+                <label for="gender"></label>
                 <select id="gender" name="gender">
                     <option value="O">Other</option>
                     <option value="M">Male</option>
@@ -43,7 +42,7 @@
                 </select>
             </div>
             <div class="input-group">
-                <label for="Password">Password</label>
+                <label for="Password"></label>
                 <input type="password" id="Password" name="password" placeholder="hunter2" required>
             </div>
             <button type="submit">Submit</button>
