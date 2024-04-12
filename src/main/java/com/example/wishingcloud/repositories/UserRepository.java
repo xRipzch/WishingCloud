@@ -50,6 +50,10 @@ public class UserRepository {
         String query = "SELECT user_id FROM users WHERE email = ?;";
         return jdbcTemplate.queryForObject(query, Integer.class, email);
     }
+    public Integer getUserId (String firstName) {
+        String query = "SELECT user_id FROM users where first_name = ?;";
+        return jdbcTemplate.queryForObject(query, Integer.class, firstName);
+    }
 
     public String checkPass(String email) {
         try {
