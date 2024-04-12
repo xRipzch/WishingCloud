@@ -13,8 +13,11 @@ public class WishlistService {
     @Autowired
     WishlistRepository wishlistRepository;
 
-    public void addWishlist(int userId, Wishlist w){
+    public void addWishlist(int userId, Wishlist w){ // skal vel ikke bruge userID og wishlist som parametre ?
         wishlistRepository.addWishlist(userId, w);
+    }
+    public void createWishlist(String wishlistName){
+        wishlistRepository.createWishlist(wishlistName);
     }
 
     public List<Wishlist> getWishLists(int userId){

@@ -17,5 +17,4 @@ public class HomePageController {
         return "home/homepage";
     }
 
-
 }
