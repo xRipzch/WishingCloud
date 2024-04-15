@@ -24,7 +24,7 @@ public class ValidateController {
     // todo rewrite method to match username with given pass and pass in DB to check if user is legit.
     public String validate(Model model, @RequestParam String email, @RequestParam String password) {
         if (userService.checkPass(email, password).equals("UserApproved")) {
-            model.addAttribute("user", userService.getUser(userService.getUserID(email)));
+            model.addAttribute("user", userService.getUser(userService.getUserId(email)));
             return "home/homepage";
         } else if (userService.checkPass(email, password).equals("NoUserFound")) {
             model.addAttribute("error", "This email does not exist in the database");
