@@ -33,4 +33,8 @@ public class WishlistRepository {
 
     }
 
+    public void createWishlist(String wishlistName, int userID) {
+        String sql = "INSERT INTO wishlists (name, user_id) VALUES (?, ?)";
+        jdbcTemplate.update(sql, wishlistName, userID);
+    }
 }
