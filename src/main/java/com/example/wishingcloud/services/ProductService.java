@@ -13,8 +13,8 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public void addProduct(Product p, int wishlistId){
-        productRepository.addProduct(p, wishlistId);
+    public void addProduct(String productName, String url, String description, double price, int amount, int wishlistId){
+        productRepository.addProduct(productName, url, description, price, amount, wishlistId);
     }
 
     public List<Product> getProducts(int wishlistId){

@@ -15,9 +15,9 @@ public class ProductRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public void addProduct(Product p, int wishlistId) {
+    public void addProduct(String name, String url, String description, double price, int amount, int wishlistId) {
         String sql = "INSERT INTO products (wishlist_id, name, url, description, price, amount) VALUES (?, ?, ?, ?, ?, ?) ";
-        jdbcTemplate.update(sql, wishlistId, p.getName(), p.getUrl(), p.getDescription(), p.getPrice(), p.getAmount());
+        jdbcTemplate.update(sql, wishlistId, name, url, description, price, amount);
     }
 
     public List<Product> getProducts(int wishlistId) {

@@ -34,17 +34,17 @@
             <th>Wishlist ID</th><th>Wishlist Name</th><th>Action</th>
         </thead>
         <tr th:each="wishlist : ${wishlists}">
-            <td th:text="${wishlist.id}"></td>
+            <td th:text="${wishlist.wishlistId}"></td>
             <td th:text="${wishlist.name}"></td>
             <td>
                 <form action="/confirm_delete" method="get">
-                    <input type="hidden" name="id" th:value="${wishlist.id}">
+                    <input type="hidden" name="id" th:value="${wishlist.wishlistId}">
                     <button type="submit">Delete</button>
                 </form>
             </td>
             <td>
-                <form action="/view_products" method="get">
-                    <input type="hidden" name="id" th:value="${wishlist.id}">
+                <form action="/product" method="get">
+                    <input type="hidden" name="id" th:value="${wishlist.wishlistId}">
                     <button type="submit">View</button>
                 </form>
             </td>
