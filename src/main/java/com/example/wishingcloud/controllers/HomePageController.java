@@ -1,4 +1,5 @@
 package com.example.wishingcloud.controllers;
+
 import com.example.wishingcloud.services.UserService;
 import com.example.wishingcloud.services.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,16 @@ public class HomePageController {
     @PostMapping("/createWishlist")
     public String createWishlist(Model model, @RequestParam String wishlistName,
                                  @RequestParam String email) {
-      wishService.createWishlist(wishlistName, userService.getUserId(email)); //finder userId ud fra firstname, som ikke er unikt?
         int userId = userService.getUserId(email);
+        wishService.createWishlist(wishlistName, userId); //finder userId ud fra firstname, som ikke er unikt?
         model.addAttribute("user", userService.getUser(userId));
         return "home/homepage";
     }
+
+    @PostMapping("/confirm_delete")
+    public String deleteWishlist(@RequestParam int wishlistId) {
+        wishService.deleteWishlist(wishlistId);
+        return "home/homepage";
+    }
+
 }
