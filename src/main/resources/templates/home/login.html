@@ -16,12 +16,12 @@
         <form th:action="@{/validate}" method="post" class="login-frame">
             <div class="input-group">
                 <p th:text ="${error}" ></p>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email"></label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
             </div>
             <button type="submit">Login</button>
         </form>

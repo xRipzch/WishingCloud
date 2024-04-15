@@ -8,6 +8,7 @@ public class Product {
     private int amount;
     private String description;
 // private object picture // TODO
+
     public Product() { // empty for Spring DI and IOC MAGIC BABY
     }
 

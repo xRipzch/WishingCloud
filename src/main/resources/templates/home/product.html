@@ -23,11 +23,12 @@
             <label class="" for="description"> Description </label>
             <input class="form" type="text" id="description" name="description"
                    placeholder="write the description of the product here...">
-            <label for="amount" >Amount</label>
+            <label for="amount">Amount</label>
             <input type="number" id="amount" name="amount" value="0">
 
             <input type="submit" value="Add">
-            <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlistId}">
+            <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlist.wishlistId}">
+
         </form>
     </div>
 </section>
@@ -36,24 +37,20 @@
     <h2 class="hero-title"> Your wishes </h2>
     <table id="productTable">
         <thead>
-        <th>Product ID</th><th>Product Name</th><th>Price</th><th>URL</th><th>Action</th>
+        <th>Product Name</th>        <th>Price</th>        <th>URL</th>        <th>Action</th>
         </thead>
-        <tr th:each="product : ${products}">
-            <td th:text="${product.productId}"></td>
-            <td th:text="${product.productName}"></td>
-            <td th:text="${product.price}"></td>
-            <td th:text="${product.amount}"></td>
-            <td th:text="${product.url}"></td>
-            <td th:text="${product.description}"></td>
+        <tr th:each="product : ${products}">            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>            <td th:text="${product.amount}"></td>
+            <td th:text="${product.url}"></td>            <td th:text="${product.description}"></td>
 
             <td>
                 <form action="/confirm_delete_product" method="get">
-                    <input type="hidden" name="id" th:value="${product.productId}">
+                    <input type="hidden" name="id" th:value="${product.productID}">
                     <button type="submit">Delete</button>
                 </form>
             </td>
         </tr>
     </table>
-
+    </div>
 </body>
 </html>
