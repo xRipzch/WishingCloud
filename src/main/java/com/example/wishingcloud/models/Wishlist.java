@@ -2,8 +2,22 @@ package com.example.wishingcloud.models;
 
 public class Wishlist {
     private String name;
-    private int wishlistID;
-//    private int userID; // TODO No do. We dont need
+    private int wishlistId;
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public Wishlist(String name, int wishlistId, int userId) {
+        this.name = name;
+        this.wishlistId = wishlistId;
+        this.userId = userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getName() {
         return name;
@@ -13,17 +27,17 @@ public class Wishlist {
         this.name = name;
     }
 
-    public int getWishlistID() {
-        return wishlistID;
+    public int getWishlistId() {
+        return wishlistId;
     }
 
-    public void setWishlistID(int wishlistID) {
-        this.wishlistID = wishlistID;
+    public void setWishlistId(int wishlistId) {
+        this.wishlistId = wishlistId;
     }
 
-    public Wishlist(String name, int wishlistID) {
+    public Wishlist(String name, int wishlistId) {
         this.name = name;
-        this.wishlistID = wishlistID;
+        this.wishlistId = wishlistId;
     }
 
     public Wishlist(){

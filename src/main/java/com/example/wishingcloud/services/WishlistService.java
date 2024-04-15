@@ -16,8 +16,8 @@ public class WishlistService {
     public void addWishlist(int userId, Wishlist w){ // skal vel ikke bruge userID og wishlist som parametre ?
         wishlistRepository.addWishlist(userId, w);
     }
-    public void createWishlist(String wishlistName){
-        wishlistRepository.createWishlist(wishlistName);
+    public void createWishlist(String wishlistName, int userID){
+        wishlistRepository.createWishlist(wishlistName, userID);
     }
 
     public List<Wishlist> getWishLists(int userId){
