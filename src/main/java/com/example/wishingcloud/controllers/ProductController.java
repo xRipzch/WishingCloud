@@ -17,6 +17,7 @@ public class ProductController {
 
     @Autowired
     WishlistService wishlistService;
+
     @GetMapping ("/product")
     public String showAllProducts(@RequestParam int id, Model model) {
         model.addAttribute("products", productService.getProducts(id));
@@ -25,7 +26,7 @@ public class ProductController {
     }
     @PostMapping("/addProduct")
     public String addProduct(@RequestParam String productName, @RequestParam String url, @RequestParam String description,
-                             @RequestParam double price, @RequestParam int amount, @RequestParam int wishlistId) {
+                             @RequestParam double price, @RequestParam int amount, @RequestParam int wishlistId, Model model) {
         if(productName.isEmpty() || url.isEmpty() || description.isEmpty()|| price == 0 || amount == 0) {
             return "redirect:/product?id=" + wishlistId;
         }
@@ -34,7 +35,7 @@ public class ProductController {
         }
 
         productService.addProduct(productName, url, description, price, amount, wishlistId);
+        model.addAttribute("products", productService.getProducts(wishlistId));
         return "redirect:/product?id=" + wishlistId;
     }
-
 }

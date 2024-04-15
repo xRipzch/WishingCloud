@@ -3,11 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
 <!--todo create homepage where user can create a new wish list  -->
+<section class="hero">
 
- <h1> Welcome </h1>  <p th:text = "${user.firstName}" > </p>
+            <h1> Welcome </h1>
+            <h1 class="" th:text="${user.firstName}"></h1>
+            <label for="name"> </label>
+            <h2 class="hero-title"> Create a new wish list </h2>
+            <div class="wish-form">
+                <div class="wish-form-textarea">
+                    <form class="wish-form" action="/createWishlist" method="post">
+                        <label class="" for="name"> name </label>
+                        <input class="form" type="text" id="name" name="wishlistName"
+                               placeholder="write your wishlist name here...">
+                        <input type="submit" value="Create">
+                        <input type="hidden" id="firstName" name="firstName" th:value="${user.firstName}">
+                        <!--Vi skal lige tænke over de hidden typer, og hvilke der skal med-->
+                        <input type="hidden" id="email" name="email" th:value="${user.email}"> <!--Samme her-->
+                    </form>
+                </div>
+            </div>
+
+    <div class="login-form">
+            <h2 class="hero-title"> Your Wish Lists </h2>
+    <table id="wishListTable">
+        <thead>
+            <th>Wishlist Name</th><th>Action</th>
+        </thead>
+        <tr th:each="wishlist : ${wishlists}">
+            <td th:text="${wishlist.name}"></td>
+            <td>
+                <form action="/confirm_delete" method="get">
+                    <input type="hidden" name="id" th:value="${wishlist.wishlistId}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+            <td>
+                <form action="/product" method="get">
+                    <input type="hidden" name="id" th:value="${wishlist.wishlistId}">
+                    <button type="submit">View</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    </div>
+</section>
 </body>
 </html>
 
