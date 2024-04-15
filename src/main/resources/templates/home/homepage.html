@@ -31,10 +31,9 @@
             <h2 class="hero-title"> Your Wish Lists </h2>
     <table id="wishListTable">
         <thead>
-            <th>Wishlist ID</th><th>Wishlist Name</th><th>Action</th>
+            <th>Wishlist Name</th><th>Action</th>
         </thead>
         <tr th:each="wishlist : ${wishlists}">
-            <td th:text="${wishlist.wishlistId}"></td>
             <td th:text="${wishlist.name}"></td>
             <td>
                 <form action="/confirm_delete" method="get">
