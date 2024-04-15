@@ -38,13 +38,13 @@ public class UserService {
     }
 
 
-    public int getUserID(String email) {
-        return userRepository.getUserID(email);
+    public int getUserId(String email) {
+        return userRepository.getUserId(email);
     }
 
-    public int getUserId(String firstName) {
-        return userRepository.getUserId(firstName);
-    }
+    //public int getUserId(String firstName) {
+       // return userRepository.getUserId(firstName);
+  //  }
 
     /*public boolean checkPass(String email, String password) {
         try {

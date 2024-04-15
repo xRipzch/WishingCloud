@@ -26,6 +26,8 @@ public class UserRepository {
             genderValue = "Female";
         }
 
+        //Hvad hvis det er et andet gender?
+
         String formattedDateOfBirth = u.getDateOfBirth().toString(); // Format: "yyyy-MM-dd"
 
         jdbcTemplate.update(sql, u.getFirstName(), u.getLastName(), u.getEmail(), u.getPassword(), u.getAddress(),
@@ -46,14 +48,14 @@ public class UserRepository {
         return jdbcTemplate.queryForObject(query, rowMapper, userId);
 
     }
-    public Integer getUserID(String email) {
+    public Integer getUserId(String email) {
         String query = "SELECT user_id FROM users WHERE email = ?;";
         return jdbcTemplate.queryForObject(query, Integer.class, email);
     }
-    public Integer getUserId (String firstName) {
-        String query = "SELECT user_id FROM users where first_name = ?;";
-        return jdbcTemplate.queryForObject(query, Integer.class, firstName);
-    }
+    //public Integer getUserId (String firstName) {
+        //String query = "SELECT user_id FROM users where first_name = ?;";
+        //return jdbcTemplate.queryForObject(query, Integer.class, firstName);
+    //}
 
     public String checkPass(String email) {
         try {

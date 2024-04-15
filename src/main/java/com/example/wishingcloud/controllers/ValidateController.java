@@ -1,6 +1,7 @@
 package com.example.wishingcloud.controllers;
 
 import com.example.wishingcloud.services.UserService;
+import com.example.wishingcloud.services.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ValidateController {
     @Autowired
     UserService userService;
+
+    @Autowired
+    WishlistService wishlistService;
 
 
 
