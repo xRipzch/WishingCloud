@@ -8,14 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class HomePageController {
+
     @Autowired
     UserService userService;
 
-    @Autowired
-    WishlistService wishService;
     @Autowired
     private WishlistService wishlistService;
 
@@ -31,15 +31,16 @@ public class HomePageController {
     public String createWishlist(Model model, @RequestParam String wishlistName,
                                  @RequestParam String email) {
         int userId = userService.getUserId(email);
-        wishService.createWishlist(wishlistName, userId); //finder userId ud fra firstname, som ikke er unikt?
+        wishlistService.createWishlist(wishlistName, userId); //finder userId ud fra firstname, som ikke er unikt?
         model.addAttribute("user", userService.getUser(userId));
         return "home/homepage";
     }
 
-    @PostMapping("/confirm_delete")
-    public String deleteWishlist(@RequestParam int wishlistId) {
-        wishService.deleteWishlist(wishlistId);
-        return "home/homepage";
+    @PostMapping("/confirm_delete") // TODO vi er nødt til at lave noget fis her med email når vi redirecter
+    public String deleteWishlist(@RequestParam int wishlistId, @RequestParam String email, RedirectAttributes redirectAttributes) {
+        wishlistService.deleteWishlist(wishlistId);
+        redirectAttributes.addAttribute("email", email);
+        return "redirect:/homepage";
     }
 
 }

@@ -1,6 +1,5 @@
 package com.example.wishingcloud.controllers;
 
-import com.example.wishingcloud.models.Product;
 import com.example.wishingcloud.services.ProductService;
 import com.example.wishingcloud.services.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ProductController {
@@ -17,30 +17,38 @@ public class ProductController {
     @Autowired
     WishlistService wishlistService;
 
-    @GetMapping ("/product")
-    public String showAllProducts(@RequestParam int id, Model model) {
-        model.addAttribute("products", productService.getProducts(id));
-        model.addAttribute("wishlist", wishlistService.getWishList(id));
+    @GetMapping("/product")
+    public String showAllProducts(@RequestParam int wishlistId, Model model) {
+        model.addAttribute("products", productService.getProducts(wishlistId));
+        model.addAttribute("wishlist", wishlistService.getWishList(wishlistId));
         return "home/product";
     }
+
     @PostMapping("/addProduct")
     public String addProduct(@RequestParam String productName, @RequestParam String url, @RequestParam String description,
                              @RequestParam double price, @RequestParam int amount, @RequestParam int wishlistId, Model model) {
-        if(productName.isEmpty() || url.isEmpty() || description.isEmpty()|| price == 0 || amount == 0) {
-            return "redirect:/product?id=" + wishlistId;
+        if (productName.isEmpty() || url.isEmpty() || description.isEmpty() || price == 0 || amount == 0) {
+            return "redirect:/product?wishlistId=" + wishlistId;
         }
-        if(price <= 0 || amount <= 0) {
-            return "redirect:/product?id=" + wishlistId;
+        if (price <= 0 || amount <= 0) {
+            return "redirect:/product?wishlistId=" + wishlistId;
         }
         productService.addProduct(productName, url, description, price, amount, wishlistId);
         model.addAttribute("products", productService.getProducts(wishlistId));
-        return "redirect:/product?id=" + wishlistId;
+        return "redirect:/product?wishlistId=" + wishlistId;
     }
 
     @PostMapping("/confirm_delete_product")
-    public String deleteProductFromWishlist(@RequestParam int productId){
+    public String deleteProductFromWishlist(@RequestParam int productId, @RequestParam int wishlistId, RedirectAttributes redirectAttributes) {
         productService.deleteProductFromWishlist(productId);
-        return "home/product";
+        redirectAttributes.addAttribute("wishlistId", wishlistId);
+        return "redirect:/product";
+    }
+
+    @GetMapping("/edit_product")
+    public String editProductFromWishlist(@RequestParam int productId, Model model) {
+        model.addAttribute(productService.getProduct(productId));
+        return "redirect:/edit_product";
     }
 
 }

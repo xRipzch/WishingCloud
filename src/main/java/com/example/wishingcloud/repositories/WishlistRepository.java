@@ -38,10 +38,19 @@ public class WishlistRepository {
         jdbcTemplate.update(sql, wishlistName, userID);
     }
 
-    public void deleteWishlist(int wishlistId){
-        String sql = "DELETE FROM wishlists WHERE wishlist_id = ?";
+    public void deleteWishlist(int wishlistId) {
+        deleteAllProductsFromWishList(wishlistId);
+        deleteActualWishlist(wishlistId);
+    }
+
+    public void deleteAllProductsFromWishList(int wishlistId) {
+        String sql = "DELETE FROM products WHERE wishlist_id = ?";
         jdbcTemplate.update(sql, wishlistId);
     }
-    //TODO ADD TRY CATCH?!?
 
+    public void deleteActualWishlist(int wishlistId) {
+        String sql = "DELETE FROM wishlists WHERE wishlist_id = ?";
+        jdbcTemplate.update(sql, wishlistId);
+        //TODO ADD TRY CATCH?!?
+    }
 }
