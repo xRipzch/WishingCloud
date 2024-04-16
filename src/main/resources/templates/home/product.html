@@ -28,33 +28,45 @@
 
             <input type="submit" value="Add">
             <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlist.wishlistId}">
-
         </form>
     </div>
 </section>
+
 <!--todo create a table where user can see all the products in a wishlist using th:each command -->
 <div class="login-form">
     <h2 class="hero-title"> Your wishes </h2>
     <table id="productTable">
         <thead>
-        <th>Product Name</th>        <th>Price</th>        <th>URL</th>        <th>Action</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>URL</th>
+        <th>Action</th>
         </thead>
         <tr th:each="product : ${products}">
             <td th:text="${product.name}"></td>
             <td th:text="${product.price}"></td>
             <td th:text="${product.amount}"></td>
+            <td th:hidden="true" th:text="${product.productId}"></td>
             <td>
-                <a th:href= "${product.url}" th:text="${product.url}">Link</a>
+                <a th:href="${product.url}" th:text="${product.url}">Link</a>
             </td>
-                 <td th:text="${product.description}"></td>
+            <td th:text="${product.description}"></td>
             <td>
-                <form action="/confirm_delete_product" method="get">
-                    <input type="hidden" name="id" th:value="${product.productID}">
+                <form action="/edit_product" method="get">
+                    <input type="hidden" name="productId" th:value="${product.productId}">
+                    <button type="submit">Edit</button>
+
+                    <!--                    INDSÆT HER!-->
+
+                </form>
+                <form action="/confirm_delete_product" method="post">
+                    <input type="hidden" name="wishlistId" th:value="${wishlist.wishlistId}">
+                    <input type="hidden" name="productId" th:value="${product.productId}">
                     <button type="submit">Delete</button>
                 </form>
             </td>
         </tr>
     </table>
-    </div>
+</div>
 </body>
 </html>

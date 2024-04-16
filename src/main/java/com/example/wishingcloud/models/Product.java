@@ -1,7 +1,7 @@
 package com.example.wishingcloud.models;
 
 public class Product {
-    private int productID;
+    private int productId;
     private String name;
     private double price;
     private String url;
@@ -12,8 +12,8 @@ public class Product {
     public Product() { // empty for Spring DI and IOC MAGIC BABY
     }
 
-    public Product(int productID, String name, double price, String url, int amount, String description) {
-        this.productID = productID;
+    public Product(int productId, String name, double price, String url, int amount, String description) {
+        this.productId = productId;
         this.name = name;
         this.price = price;
         this.url = url;
@@ -29,12 +29,12 @@ public class Product {
         this.description = description;
     }
 
-    public int getProductID() {
-        return productID;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public void setProductId(int productID) {
+        this.productId = productID;
     }
 
     public String getName() {

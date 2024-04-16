@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+</head>
+<body>
+<h1>Edit <br>
+
+    <section class="hero">
+        <h1> Add a product to your wishlist </h1>
+        <div class="product-form">
+            <form class="product-form" action="/addProduct" method="post">
+                <label class="" for="name"> Product name </label>
+                <input class="form" type="text" id="name" name="productName"
+                       placeholder="write your product name here...">
+                <label class="" for="price"> Price </label>
+                <input class="form" type="number" id="price" name="price" value="0"
+                       placeholder="write the price of the product here...">
+                <label class="" for="url"> URL </label>
+                <input class="form" type="text" id="url" name="url"
+                       placeholder="write the URL of the product here...">
+                <label class="" for="description"> Description </label>
+                <input class="form" type="text" id="description" name="description"
+                       placeholder="write the description of the product here...">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" value="0">
+
+                <input type="submit" value="Add">
+                <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlist.wishlistId}">
+            </form>
+        </div>
+    </section>
+
+</h1>
+
+</body>
+</html>
