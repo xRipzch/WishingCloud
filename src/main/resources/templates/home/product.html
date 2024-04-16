@@ -44,6 +44,9 @@
             <td th:text="${product.url}"></td>            <td th:text="${product.description}"></td>
 
             <td>
+                <form action="/edit_product" method="get">
+                    <button type="submit">Edit</button>
+                </form>
                 <form action="/confirm_delete_product" method="get">
                     <input type="hidden" name="id" th:value="${product.productID}">
                     <button type="submit">Delete</button>

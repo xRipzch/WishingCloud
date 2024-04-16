@@ -38,4 +38,11 @@ public class ProductController {
         model.addAttribute("products", productService.getProducts(wishlistId));
         return "redirect:/product?id=" + wishlistId;
     }
+
+    @PostMapping("/confirm_delete_product")
+    public String deleteProductFromWishlist(@RequestParam int productId){
+        productService.deleteProductFromWishlist(productId);
+        return "home/product";
+    }
+
 }

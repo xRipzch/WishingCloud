@@ -33,4 +33,9 @@ public class ProductRepository {
 
     }
 
+    public void deleteProductFromWishlist(int productId){
+        String sql = "DELETE FROM products WHERE product_id = ?";
+        jdbcTemplate.update(sql, productId);
+    }
+
 }
