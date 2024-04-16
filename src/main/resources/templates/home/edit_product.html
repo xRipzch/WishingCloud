@@ -10,8 +10,8 @@
     <section class="hero">
         <h1> Add a product to your wishlist </h1>
         <div class="product-form">
-            <form class="product-form" action="/addProduct" method="post">
-                <label class="" for="name"> Product name </label>
+            <form class="product-form" action="/edit_product2" method="post">
+                <label class="" for="name" > Product name </label>
                 <input class="form" type="text" id="name" name="productName"
                        placeholder="write your product name here...">
                 <label class="" for="price"> Price </label>
@@ -22,12 +22,12 @@
                        placeholder="write the URL of the product here...">
                 <label class="" for="description"> Description </label>
                 <input class="form" type="text" id="description" name="description"
-                       placeholder="write the description of the product here...">
+                     placeholder="Descriptipn bla bla "   >
                 <label for="amount">Amount</label>
                 <input type="number" id="amount" name="amount" value="0">
 
-                <input type="submit" value="Add">
-                <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlist.wishlistId}">
+                <input type="submit" value="Save">
+                <input type="hidden" name="productId" th:value ="${product.productId}" >
             </form>
         </div>
     </section>
