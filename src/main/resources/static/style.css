@@ -4,19 +4,36 @@ body {
     font-family: sans-serif;
 
 }
+
 h1 {
     text-align: center;
     margin-top: 20px;
     color: #090000;
+    font-family: "Open Sans", sans-serif;
+
+
 }
 
+h2, p {
+    color: #fdfbfb;
+    font-family: "Lato", serif;
+    text-shadow: white;
+}
+
+p1 {
+    color: #050000;
+    font-family: "Lato", serif;
+    text-shadow: 0 0 3px #ebedf3;
+}
+
+
 .hero {
-    background-image: url('clouds.jpg');
+    background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzFmZDdrMjZ1dXBnenQzaTZtbmh0ZnFoZGtqeGwzeWw0azBpNGxpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/k3CeSrt9IZ6aorWCy1/giphy-downsized-large.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    min-height: 100vh;
+    min-height: 93vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,6 +49,7 @@ h1 {
     font-family: 'Sacramento', cursive;
     font-size: 4rem;
     margin-bottom: 1rem;
+    text-shadow: 0 0 3px #090000;
 }
 
 .hero-text {
@@ -39,27 +57,28 @@ h1 {
     margin-bottom: 2rem;
     padding-left: 10rem;
     padding-right: 10rem;
+    text-shadow: 0 0 3px #050000;
 }
 
 
-
+.wish-form-textarea label{
+    background: rgba(9, 0, 0, 0.4);
+    margin: auto auto 5px;
+}
 .wish-form-textarea input {
-    width: 100%;
-    padding: 10px;
+    width: 75%;
     border: 1px solid #ccc;
     border-radius: 10px;
     outline: none;
     transition: border-color 0.3s;
     box-sizing: border-box;
-    height: 75px;
+    height: 100px;
     resize: none;
     margin-bottom: 1rem;
+    margin-top: 5px;
+    padding: 5px 10px 10px;
 }
 
-
-.wish-form-textarea input:hover {
-    border-color: #999;
-}
 
 .wish-form-textarea input:focus {
     border-color: #007bff;
@@ -67,14 +86,14 @@ h1 {
 
 .wish-form button {
     padding: 1rem 2rem;
-    background-color: #007bff;
+    background-color: #105ce8;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 .wish-form button:hover {
-    background-color: #ADD8E6;
+    background-color: #0056b3;
 }
 
 .wishing-cloud {
@@ -110,24 +129,19 @@ h1 {
     cursor: pointer;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
 
 .login-form {
-    background-color: #acbdcb;
+    background-color: #e1e1ea;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-    color: #000;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
 }
 
 .login-frame {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: auto;
 }
 
 .input-group label {
@@ -143,6 +157,16 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+.login-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
 
 button {
     padding: 10px 20px;
@@ -157,15 +181,25 @@ button:hover {
     background-color: #0056b3;
 }
 .signup-form {
-    background-color: #acbdcb;
+    background-color: #ebedf3;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     color: #000;
+}
+.signup-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 .input-group {
     display: flex;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 10px;
 }
