@@ -29,8 +29,13 @@ public class ProductService {
         productRepository.deleteProductFromWishlist(productId);
     }
 
-    public void editProductFromWishlist(int productId){
-//        productRepository.editProductFromWishlist(productId);
+    public void editProductFromWishlist(String name, String url, String description, double price, int amount, int productId){
+        productRepository.editProductFromWishlist(name, url, description, price, amount, productId);
+
     }
 
+    public int getWishlistIdFromProduct(int productId) {
+      return productRepository.getWishListIdFromProduct(productId);
+
+    }
 }
