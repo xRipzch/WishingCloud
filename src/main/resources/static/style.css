@@ -7,11 +7,11 @@ body {
 h1 {
     text-align: center;
     margin-top: 20px;
-    color: #6ca8e8;
+    color: #0a0000;
 }
 
 .hero {
-    background-image: url('clouds.jpg');
+    background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzFmZDdrMjZ1dXBnenQzaTZtbmh0ZnFoZGtqeGwzeWw0azBpNGxpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/k3CeSrt9IZ6aorWCy1/giphy-downsized-large.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -130,13 +130,12 @@ body {
     align-items: center;
 }
 
-.input-group {
-    margin-bottom: 20px;
-}
+
 
 .input-group label {
-    display: block;
-    margin-bottom: 5px;
+
+margin-bottom: 5px;
+    margin-right: 10px;
 }
 
 .input-group input {
@@ -166,11 +165,38 @@ button:hover {
     color: #000;
 }
 .input-group {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+    width: 100%;
+    margin-bottom: 10px;
 }
 .input-group label {
     margin-right: 10px;
 }
 
+.form-label {
+
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+.form-submit {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+}
+.product-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

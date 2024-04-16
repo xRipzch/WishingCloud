@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class HomePageController {
@@ -27,11 +28,12 @@ public class HomePageController {
     }
 
     @PostMapping("/createWishlist")
-    public String createWishlist(Model model, @RequestParam String wishlistName,
-                                 @RequestParam String email) {
+    public String createWishlist( @RequestParam String wishlistName,
+                                 @RequestParam String email, RedirectAttributes redirectAttributes) {
       wishService.createWishlist(wishlistName, userService.getUserId(email)); //finder userId ud fra firstname, som ikke er unikt?
         int userId = userService.getUserId(email);
-        model.addAttribute("user", userService.getUser(userId));
-        return "home/homepage";
+        redirectAttributes.addAttribute("email", email);
+
+        return "redirect:/homepage";
     }
 }

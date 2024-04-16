@@ -37,4 +37,11 @@ public class ProductController {
         return "redirect:/product?id=" + wishlistId;
     }
 
+    @GetMapping("/sharedwishlist" )
+    public String shareWishList(@RequestParam int id, Model model) {
+        model.addAttribute("wishlist", wishlistService.getWishList(id));
+        model.addAttribute("products", productService.getProducts(id));
+        return "home/sharedwishlist";
+    }
+
 }

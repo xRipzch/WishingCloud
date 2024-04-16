@@ -3,58 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet"  type="text/css" href="style.css">
 </head>
 <body>
-<h1>Product</h1>
+<button type="button" onclick="window.history.back()">Go back</button>
 <!--todo create a page where user can add a product to a wishlist -->
-<section class="hero">
-    <h1> Add a product to your wishlist </h1>
+<div class="container">
+    <!-- Add a product form -->
     <div class="product-form">
-        <form class="product-form" action="/addProduct" method="post">
-            <label class="" for="name"> Product name </label>
-            <input class="form" type="text" id="name" name="productName"
-                   placeholder="write your product name here...">
-            <label class="" for="price"> Price </label>
-            <input class="form" type="number" id="price" name="price" value="0"
-                   placeholder="write the price of the product here...">
-            <label class="" for="url"> URL </label>
-            <input class="form" type="text" id="url" name="url"
-                   placeholder="write the URL of the product here...">
-            <label class="" for="description"> Description </label>
-            <input class="form" type="text" id="description" name="description"
-                   placeholder="write the description of the product here...">
-            <label for="amount">Amount</label>
-            <input type="number" id="amount" name="amount" value="0">
-
-            <input type="submit" value="Add">
+        <h1 class="hero-title">Wishes</h1>
+        <h1> Add a product to your wishlist </h1>
+        <form action="/addProduct" method="post">
+            <div class="input-group">
+                <label class="form-label" for="name"> Product name </label>
+                <input class="form-input" type="text" id="name" name="productName"
+                       placeholder="write your product name here...">
+            </div>
+            <div class="input-group">
+                <label class="form-label" for="price"> Price </label>
+                <input class="form-input" type="number" id="price" name="price" value="0"
+                       placeholder="write the price of the product here...">
+            </div>
+            <div class="input-group">
+                <label class="form-label" for="url"> URL </label>
+                <input class="form-input" type="text" id="url" name="url"
+                       placeholder="write the URL of the product here...">
+            </div>
+            <div class="input-group">
+                <label class="form-label" for="description"> Description </label>
+                <input class="form-input" type="text" id="description" name="description"
+                       placeholder="write the description of the product here...">
+            </div>
+            <div class="input-group">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" id="amount" name="amount" value="0" class="form-input">
+            </div>
+            <input type="submit" class="form-submit" value="Add">
             <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlist.wishlistId}">
-
         </form>
     </div>
-</section>
-<!--todo create a table where user can see all the products in a wishlist using th:each command -->
+
+
+
+
 <div class="login-form">
     <h2 class="hero-title"> Your wishes </h2>
     <table id="productTable">
         <thead>
-        <th>Product Name</th>        <th>Price</th>        <th>URL</th>        <th>Action</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>URL</th>
+        <th>Description</th>
+        <th>Action</th>
         </thead>
         <tr th:each="product : ${products}">
             <td th:text="${product.name}"></td>
             <td th:text="${product.price}"></td>
             <td th:text="${product.amount}"></td>
             <td>
-                <a th:href= "${product.url}" th:text="${product.url}">Link</a>
+                <a class="product-url" th:href="${product.url}" th:text="${product.url}">Link</a>
             </td>
-                 <td th:text="${product.description}"></td>
+            <td th:text="${product.description}"></td>
             <td>
                 <form action="/confirm_delete_product" method="get">
                     <input type="hidden" name="id" th:value="${product.productID}">
-                    <button type="submit">Delete</button>
+                    <button class="delete-button" type="submit">Delete</button>
                 </form>
             </td>
         </tr>
     </table>
-    </div>
+</div>
 </body>
 </html>
