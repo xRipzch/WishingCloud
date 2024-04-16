@@ -1,4 +1,5 @@
 package com.example.wishingcloud.controllers;
+
 import com.example.wishingcloud.services.UserService;
 import com.example.wishingcloud.services.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class HomePageController {
+
     @Autowired
     UserService userService;
 
     @Autowired
-    WishlistService wishService;
-    @Autowired
-    private WishlistService wishlistService;
+     WishlistService wishlistService;
 
     @GetMapping("/homepage")
     public String homePage(Model model, @RequestParam String email) {
@@ -28,12 +28,21 @@ public class HomePageController {
     }
 
     @PostMapping("/createWishlist")
+
     public String createWishlist( @RequestParam String wishlistName,
                                  @RequestParam String email, RedirectAttributes redirectAttributes) {
-      wishService.createWishlist(wishlistName, userService.getUserId(email)); //finder userId ud fra firstname, som ikke er unikt?
+        wishlistService.createWishlist(wishlistName, userService.getUserId(email)); //finder userId ud fra firstname, som ikke er unikt?
         int userId = userService.getUserId(email);
         redirectAttributes.addAttribute("email", email);
 
         return "redirect:/homepage";
     }
+
+    @PostMapping("/confirm_delete") // TODO vi er nødt til at lave noget fis her med email når vi redirecter
+    public String deleteWishlist(@RequestParam int wishlistId, @RequestParam String email, RedirectAttributes redirectAttributes) {
+        wishlistService.deleteWishlist(wishlistId);
+        redirectAttributes.addAttribute("email", email);
+        return "redirect:/homepage";
+    }
+
 }

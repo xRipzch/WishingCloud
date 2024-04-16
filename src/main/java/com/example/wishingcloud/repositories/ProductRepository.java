@@ -16,12 +16,12 @@ public class ProductRepository {
     JdbcTemplate jdbcTemplate;
 
     public void addProduct(String name, String url, String description, double price, int amount, int wishlistId) {
-        String sql = "INSERT INTO products (wishlist_id, name, url, description, price, amount) VALUES (?, ?, ?, ?, ?, ?) ";
+        String sql = "INSERT INTO products (wishlist_id, name, url, description, price, amount) VALUES (?, ?, ?, ?, ?, ?);";
         jdbcTemplate.update(sql, wishlistId, name, url, description, price, amount);
     }
 
     public List<Product> getProducts(int wishlistId) {
-        String sql = "SELECT * FROM products WHERE wishlist_id = ?";
+        String sql = "SELECT * FROM products WHERE wishlist_id = ?;";
         RowMapper<Product> rowMapper = new BeanPropertyRowMapper<>(Product.class);
         return jdbcTemplate.query(sql, rowMapper, wishlistId);
     }
@@ -33,4 +33,13 @@ public class ProductRepository {
 
     }
 
+    public void deleteProductFromWishlist(int productId){
+        String sql = "DELETE FROM products WHERE product_id = ?;";
+        jdbcTemplate.update(sql, productId);
+    }
+
+    public void editProductFromWishlist(String name, String url, String description, double price, int amount, int productId){
+        String sql = "UPDATE products SET name = ?, url = ?, description = ?, price = ?, amount = ? WHERE product_id = ?;";
+        jdbcTemplate.update(sql,name,url,description,price,amount,productId);
+    }
 }
