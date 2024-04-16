@@ -38,4 +38,5 @@ public class ProductController {
         model.addAttribute("products", productService.getProducts(wishlistId));
         return "redirect:/product?id=" + wishlistId;
     }
+
 }

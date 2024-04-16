@@ -27,7 +27,7 @@ public class ValidateController {
         if (loginStatus.equals("UserApproved")) {
             model.addAttribute("user", userService.getUser(userService.getUserId(email)));
             model.addAttribute("wishlists", wishlistService.getWishLists(userService.getUserId(email)));
-            return "redirect:home/homepage";
+            return "home/homepage";
         } else if (loginStatus.equals("NoUserFound")) {
             model.addAttribute("error", "This email does not exist in the database");
             return "home/login";
