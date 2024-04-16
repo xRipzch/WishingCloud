@@ -39,10 +39,14 @@
         <thead>
         <th>Product Name</th>        <th>Price</th>        <th>URL</th>        <th>Action</th>
         </thead>
-        <tr th:each="product : ${products}">            <td th:text="${product.name}"></td>
-            <td th:text="${product.price}"></td>            <td th:text="${product.amount}"></td>
-            <td th:text="${product.url}"></td>            <td th:text="${product.description}"></td>
-
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.amount}"></td>
+            <td>
+                <a th:href= "${product.url}" th:text="${product.url}">Link</a>
+            </td>
+                 <td th:text="${product.description}"></td>
             <td>
                 <form action="/confirm_delete_product" method="get">
                     <input type="hidden" name="id" th:value="${product.productID}">
