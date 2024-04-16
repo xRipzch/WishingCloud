@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProductController {
     @Autowired
     ProductService productService;
-
     @Autowired
     WishlistService wishlistService;
 
@@ -33,7 +32,6 @@ public class ProductController {
         if(price <= 0 || amount <= 0) {
             return "redirect:/product?id=" + wishlistId;
         }
-
         productService.addProduct(productName, url, description, price, amount, wishlistId);
         model.addAttribute("products", productService.getProducts(wishlistId));
         return "redirect:/product?id=" + wishlistId;

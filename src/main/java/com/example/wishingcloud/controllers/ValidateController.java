@@ -3,8 +3,7 @@ package com.example.wishingcloud.controllers;
 import com.example.wishingcloud.services.UserService;
 import com.example.wishingcloud.services.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,12 +21,11 @@ public class ValidateController {
 
     @PostMapping("/validate")
 
-    public String validate(Model model, @RequestParam String email, @RequestParam String password) {
+    public String validate(Model model, @RequestParam String email, @RequestParam String password, RedirectAttributes redirectAttributes) {
         String loginStatus = userService.checkPass(email,password);
         if (loginStatus.equals("UserApproved")) {
-            model.addAttribute("user", userService.getUser(userService.getUserId(email)));
-            model.addAttribute("wishlists", wishlistService.getWishLists(userService.getUserId(email)));
-            return "redirect:home/homepage";
+            redirectAttributes.addAttribute("email", email);
+            return "redirect:/homepage";
         } else if (loginStatus.equals("NoUserFound")) {
             model.addAttribute("error", "This email does not exist in the database");
             return "home/login";

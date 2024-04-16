@@ -16,11 +16,14 @@ public class HomePageController {
 
     @Autowired
     WishlistService wishService;
+    @Autowired
+    private WishlistService wishlistService;
 
     @GetMapping("/homepage")
     public String homePage(Model model, @RequestParam String email) {
         int userId = userService.getUserId(email);
         model.addAttribute("user", userService.getUser(userId));
+        model.addAttribute("wishlists", wishlistService.getWishLists(userService.getUserId(email)));
         return "home/homepage";
     }
 
