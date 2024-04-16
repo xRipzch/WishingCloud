@@ -17,7 +17,7 @@ public class HomePageController {
     UserService userService;
 
     @Autowired
-    private WishlistService wishlistService;
+     WishlistService wishlistService;
 
     @GetMapping("/homepage")
     public String homePage(Model model, @RequestParam String email) {
@@ -28,12 +28,14 @@ public class HomePageController {
     }
 
     @PostMapping("/createWishlist")
-    public String createWishlist(Model model, @RequestParam String wishlistName,
-                                 @RequestParam String email) {
+
+    public String createWishlist( @RequestParam String wishlistName,
+                                 @RequestParam String email, RedirectAttributes redirectAttributes) {
+        wishlistService.createWishlist(wishlistName, userService.getUserId(email)); //finder userId ud fra firstname, som ikke er unikt?
         int userId = userService.getUserId(email);
-        wishlistService.createWishlist(wishlistName, userId); //finder userId ud fra firstname, som ikke er unikt?
-        model.addAttribute("user", userService.getUser(userId));
-        return "home/homepage";
+        redirectAttributes.addAttribute("email", email);
+
+        return "redirect:/homepage";
     }
 
     @PostMapping("/confirm_delete") // TODO vi er nødt til at lave noget fis her med email når vi redirecter

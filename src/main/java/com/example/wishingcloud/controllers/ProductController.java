@@ -38,6 +38,13 @@ public class ProductController {
         return "redirect:/product?wishlistId=" + wishlistId;
     }
 
+    @GetMapping("/sharedwishlist" )
+    public String shareWishList(@RequestParam int id, Model model) {
+        model.addAttribute("wishlist", wishlistService.getWishList(id));
+        model.addAttribute("products", productService.getProducts(id));
+        return "home/sharedwishlist";
+
+    }
     @PostMapping("/confirm_delete_product")
     public String deleteProductFromWishlist(@RequestParam int productId, @RequestParam int wishlistId, RedirectAttributes redirectAttributes) {
         productService.deleteProductFromWishlist(productId);
@@ -49,6 +56,7 @@ public class ProductController {
     public String editProductFromWishlist(@RequestParam int productId, Model model) {
         model.addAttribute(productService.getProduct(productId));
         return "redirect:/edit_product";
+
     }
 
 }

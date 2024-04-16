@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+
+</head>
+<body>
+
+<div class="login-form">
+    <h2 class="hero-title"> Shared wishes  </h2>
+    <table id="productTable">
+        <thead>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>URL</th>
+        <th>Description</th>
+        </thead>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.amount}"></td>
+            <td>
+                <a class="product-url" th:href="${product.url}" th:text="${product.url}" target="_blank" >Link</a>
+            </td>
+            <td th:text="${product.description}"></td>
+            <td>
+                <form action="/confirm_delete_product" method="get">
+                    <input type="hidden" name="id" th:value="${product.productId}">
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

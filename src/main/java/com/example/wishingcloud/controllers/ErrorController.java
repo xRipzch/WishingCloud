@@ -1,4 +1,4 @@
-package com.example.wishingcloud.controllers;
+/*package com.example.wishingcloud.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,3 +11,4 @@ public class ErrorController {
     }
 
 }
+*/

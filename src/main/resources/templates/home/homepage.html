@@ -8,7 +8,6 @@
 <body>
 <!--todo create homepage where user can create a new wish list  -->
 <section class="hero">
-
             <h1> Welcome </h1>
             <h1 class="" th:text="${user.firstName}"></h1>
             <label for="name"> </label>
@@ -18,7 +17,7 @@
                     <form class="wish-form" action="/createWishlist" method="post">
                         <label class="" for="name"> name </label>
                         <input class="form" type="text" id="name" name="wishlistName"
-                               placeholder="write your wishlist name here...">
+                               placeholder="write your wishlist name here..." required>
                         <input type="submit" value="Create">
                         <input type="hidden" id="firstName" name="firstName" th:value="${user.firstName}">
                         <!--Vi skal lige tænke over de hidden typer, og hvilke der skal med-->
@@ -27,8 +26,6 @@
                 </div>
             </div>
 
-    action="/updateWebsite" met
-    hidden email
 
     <div class="login-form"> <!-- TODO Skal laves om -->
             <h2 class="hero-title"> Your Wish Lists </h2>
@@ -51,6 +48,12 @@
                 <form action="/product" method="get">
                     <input type="hidden" name="wishlistId" th:value="${wishlist.wishlistId}">
                     <button type="submit">View</button>
+                </form>
+            </td>
+            <td>
+                <form action="/sharedwishlist" method="get">
+                    <input type="hidden" name="id" th:value="${wishlist.wishlistId}">
+                    <button type="submit">Share</button>
                 </form>
             </td>
         </tr>

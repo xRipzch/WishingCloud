@@ -21,13 +21,6 @@ public class HomeController {
     @Autowired
     UserService userService;
 
-
-    @GetMapping("/test")
-    public  String getUsers(Model model) {
-        model.addAttribute("users", userService.getUsers() );
-        return  "home/index";
-    }
-
     @GetMapping("/")
     public String index() {
         return "home/index";
