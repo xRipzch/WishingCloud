@@ -24,7 +24,7 @@ public class ValidateController {
     public String validate(Model model, @RequestParam String email, @RequestParam String password, RedirectAttributes redirectAttributes) {
         String loginStatus = userService.checkPass(email,password);
         if (loginStatus.equals("UserApproved")) {
-            redirectAttributes.addAttribute("email", email);
+            redirectAttributes.addAttribute("email", email); //det er sådan her man sender ting fra en controller til en anden
             return "redirect:/homepage";
         } else if (loginStatus.equals("NoUserFound")) {
             model.addAttribute("error", "This email does not exist in the database");
