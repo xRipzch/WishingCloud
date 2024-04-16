@@ -8,11 +8,8 @@
 </head>
 <body>
 <section class="hero">
-
-
-
     <div class="login-form">
-        <h2>Welcome to WishVault</h2>
+        <h1>Welcome to WishVault</h1>
         <form th:action="@{/validate}" method="post" class="login-frame">
             <div class="input-group">
                 <p th:text ="${error}" ></p>
@@ -25,9 +22,9 @@
             </div>
             <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <a th:href="@{/signup}">
+        <p1>Don't have an account? <a th:href="@{/signup}">
             <button type="button">Sign up</button>
-        </a></p>
+        </a></p1>
     </div>
 </section>
 </body>
