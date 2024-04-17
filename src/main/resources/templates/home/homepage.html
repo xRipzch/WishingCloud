@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<!--todo create homepage where user can create a new wish list  -->
 <section class="hero">
+    <div th:include="home/fragments/logo :: logo"></div>
             <h1> Welcome </h1>
             <h1 class="" th:text="${user.firstName}"></h1>
             <label for="name"> </label>
@@ -20,8 +20,7 @@
                                placeholder="write your wishlist name here..." required>
                         <input type="submit" value="Create">
                         <input type="hidden" id="firstName" name="firstName" th:value="${user.firstName}">
-                        <!--Vi skal lige tænke over de hidden typer, og hvilke der skal med-->
-                        <input type="hidden" id="email" name="email" th:value="${user.email}"> <!--Samme her-->
+                        <input type="hidden" id="email" name="email" th:value="${user.email}">
                     </form>
                 </div>
             </div>
