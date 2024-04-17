@@ -30,6 +30,7 @@
                 <form action="/confirm_delete_product" method="get">
                     <input type="hidden" name="id" th:value="${product.productId}">
                 </form>
+                <button type="button" onclick="window.history.back()">Go back</button>
             </td>
         </tr>
     </table>
