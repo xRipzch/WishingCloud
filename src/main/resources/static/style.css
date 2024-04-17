@@ -10,6 +10,10 @@ h1 {
     color: #0a0000;
 }
 
+p1 {
+    color: #000;
+}
+
 .hero {
     background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzFmZDdrMjZ1dXBnenQzaTZtbmh0ZnFoZGtqeGwzeWw0azBpNGxpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/k3CeSrt9IZ6aorWCy1/giphy-downsized-large.gif');
     background-size: cover;
@@ -20,11 +24,10 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    color: #fff;
     text-align: center;
-    border: 1px solid rgba(0,0,0,0.1);
     padding: 2rem;
+    align-items: center;
+
 }
 
 
@@ -51,14 +54,14 @@ h1 {
     outline: none;
     transition: border-color 0.3s;
     box-sizing: border-box;
-    height: 75px;
+    height: 100px;
     resize: none;
     margin-bottom: 1rem;
 }
 
 
 .wish-form-textarea input:hover {
-    border-color: #999;
+    border-color: #e80000;
 }
 
 .wish-form-textarea input:focus {
@@ -116,33 +119,12 @@ body {
     font-family: sans-serif;
 }
 
-.login-form {
-    background-color: #888383;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-    color: #000;
-}
-
-.login-frame {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-.input-group label {
-
-margin-bottom: 5px;
-    margin-right: 10px;
-}
-
 .input-group input {
-    width: 100%;
-    padding: 10px;
+    padding-right: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 70%;
+    height: 100%;
 }
 
 button {
@@ -152,6 +134,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -161,20 +144,19 @@ button:hover {
     background-color: #888383;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     color: #000;
 }
 .input-group {
-    width: 100%;
     margin-bottom: 10px;
+    height: 40px;
+    margin-top: 10px;
 }
-.input-group label {
-    margin-right: 10px;
-}
+
 
 .form-label {
 
-    margin-bottom: 5px;
+    margin-bottom: 50px;
     font-weight: bold;
 }
 
@@ -184,6 +166,7 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
+}
 
 .form-submit {
     padding: 10px 20px;
@@ -194,9 +177,28 @@ button:hover {
     cursor: pointer;
 }
 
-}
 .product-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.login-form {
+    background: rgba(0, 0, 255, 0.312);
+    box-shadow: 0 0 40px 16px rgba(0, 0, 0, 0.634);
+    color: #F1F1F2;
+    position: relative;
+    width: 35vh;
+    height: 300px;
+    border-radius: 25px;
+}
+
+.signup-form {
+    background: rgba(0, 0, 255, 0.312);
+    box-shadow: 0 0 40px 16px rgba(0, 0, 0, 0.634);
+    color: #F1F1F2;
+    position: relative;
+    width: 35vh;
+    height: auto;
+    border-radius: 25px;
 }
