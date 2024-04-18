@@ -2,6 +2,7 @@ package com.example.wishingcloud.repositories;
 
 import com.example.wishingcloud.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
@@ -63,6 +64,18 @@ public class UserRepository {
             return jdbcTemplate.queryForObject(query, String.class, email);
         } catch (EmptyResultDataAccessException e) {
             return "UserNotFound";
+        }
+    }
+
+    public String checkEmail(String email) {
+        try {
+            String query = "SELECT email FROM users WHERE email = ?;";
+            return jdbcTemplate.queryForObject(query, String.class, email);
+        } catch (EmptyResultDataAccessException e) {
+            return "UserNotFound";
+        }
+        catch (DuplicateKeyException e) {
+            return "DuplicateKey";
         }
     }
 

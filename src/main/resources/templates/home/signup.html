@@ -11,6 +11,7 @@
     <div class="signup-form">
         <h1>Welcome to WishVault</h1>
         <h1> Ready for adventure? Sign up now!</h1>
+        <p class="error-text" th:text="${error}"></p>
         <form th:action="@{/signup}" method="post" class="signup-frame">
             <div class="input-group">
                 <label for="first_name"></label>

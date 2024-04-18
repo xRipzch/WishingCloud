@@ -202,3 +202,9 @@ button:hover {
     height: auto;
     border-radius: 25px;
 }
+
+.error-text {
+    color: red;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000000,-1px -1px 0 #000000,-1px -1px 0 #000000,-1px -1px 0 #000000;
+}
