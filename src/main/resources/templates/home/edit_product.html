@@ -5,10 +5,10 @@
     <title>Edit Product</title>
 </head>
 <body>
-<h1>Edit <br>
-
+<div th:insert="~{home/logo :: logo}"></div>
     <section class="hero">
-        <h1> Add a product to your wishlist </h1>
+        <button class="Goback" type="button" onclick="window.history.back()">Go back</button>
+        <h1> Edit your product </h1>
         <div class="product-form">
             <form class="product-form" action="/addProduct" method="post">
                 <label class="" for="name"> Product name </label>
@@ -27,12 +27,9 @@
                 <input type="number" id="amount" name="amount" value="0">
 
                 <input type="submit" value="Add">
-                <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlist.wishlistId}">
             </form>
         </div>
     </section>
-
 </h1>
-
 </body>
 </html>

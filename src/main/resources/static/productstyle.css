@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    padding-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzFmZDdrMjZ1dXBnenQzaTZtbmh0ZnFoZGtqeGwzeWw0azBpNGxpZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/k3CeSrt9IZ6aorWCy1/giphy-downsized-large.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.product-form,
+.login-form {
+    padding: 5px;
+    border-radius: 10px;
+    background: rgba(0, 0, 255, 0.312);
+    box-shadow: 0 0 50px 1px rgba(0, 0, 0, 0.634);
+    width: 45%;
+    margin: 0 10px;
+    text-align: center;
+}
+
+
+.hero-title {
+    font-family: 'Sacramento', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+
+}
+.form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 350px;
+}
+
+.form-input,
+.delete-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+
+}
+
+.form-input:hover,
+.delete-button:hover {
+    border-color: #999;
+}
+
+.form-submit {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.delete-button:hover {
+    background-color: #c8233b;
+}
+
+.login-form table th,
+.login-form table td {
+    border: 1px solid #ccc;
+}
+.Goback {
+    padding: 10px 20px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.Goback:hover {
+    background-color: #0056b3;
+}

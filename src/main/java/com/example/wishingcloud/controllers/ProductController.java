@@ -52,11 +52,6 @@ public class ProductController {
         return "redirect:/product";
     }
 
-    @GetMapping("/edit_product")
-    public String editProductFromWishlist(@RequestParam int productId, Model model) {
-        model.addAttribute(productService.getProduct(productId));
-        return "redirect:/edit_product";
 
-    }
 
 }

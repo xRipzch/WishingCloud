@@ -202,3 +202,11 @@ button:hover {
     height: auto;
     border-radius: 25px;
 }
+
+.logo img {
+    max-width: 100px;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
