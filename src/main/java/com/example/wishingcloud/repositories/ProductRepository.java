@@ -42,4 +42,10 @@ public class ProductRepository {
         String sql = "UPDATE products SET name = ?, url = ?, description = ?, price = ?, amount = ? WHERE product_id = ?;";
         jdbcTemplate.update(sql,name,url,description,price,amount,productId);
     }
+
+    public Integer getWishListIdFromProduct(int productId) {
+        String query ="SELECT wishlist_id from products WHERE product_id = ?;";
+        return jdbcTemplate.queryForObject(query, Integer.class, productId);
+    }
+
 }

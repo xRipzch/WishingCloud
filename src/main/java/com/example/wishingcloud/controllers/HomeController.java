@@ -39,10 +39,15 @@ public class HomeController {
     public String signup(@RequestParam String firstName, @RequestParam String lastName,
                          @RequestParam String email, @RequestParam String password,
                          @RequestParam String address, @RequestParam String gender,
-                         @RequestParam String dateOfBirthString) {
+                         @RequestParam String dateOfBirthString, Model model) {
         LocalDate dateOfBirth = LocalDate.parse(dateOfBirthString);
-        String formattedDateOfBirth = dateOfBirth.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
+        String formattedDateOfBirth = dateOfBirth.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String signupStatus = userService.checkEmail(email);
+        if(signupStatus.equals("EmailExists")){
+            model.addAttribute("error", "Error, This email already exists, Please try again");
+            return "home/signup";
+        }
         // Create a new User object
         User newUser = new User();
         newUser.setFirstName(firstName);
@@ -54,7 +59,7 @@ public class HomeController {
         newUser.setDateOfBirth(LocalDate.parse(formattedDateOfBirth));
         userService.addUser(newUser);
 
-        return "home/signup"; // TODO: Return appropriate view
+        return "home/signup";
     }
 
 

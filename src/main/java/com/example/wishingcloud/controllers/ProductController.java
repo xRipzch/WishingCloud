@@ -52,6 +52,19 @@ public class ProductController {
         return "redirect:/product";
     }
 
+    @GetMapping("/edit_product1")
+    public String editProductFromWishlist(@RequestParam int productId, Model model) {
+        model.addAttribute("product", productService.getProduct(productId));
+        return "home/edit_product";
+
+    }
+    @PostMapping ("/edit_product2")
+    public String editProductFromWishlist (@RequestParam String productName, @RequestParam String url, @RequestParam String description, @RequestParam double price, @RequestParam int productId,  @RequestParam int amount){
+        productService.editProductFromWishlist(productName,url,description,price,amount,productId);
+        int wishlistId = productService.getWishlistIdFromProduct(productId);
+        return "redirect:/product?wishlistId=" + wishlistId;
+    }
+
 
 
 }

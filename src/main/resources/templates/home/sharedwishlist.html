@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
+
+    <link rel="stylesheet" type="text/css" href="/productstyle.css">
 
 </head>
 <body>
-<div th:insert="~{home/logo :: logo}"></div>
 <section class=hero>
+    <div th:insert="~{home/logo :: logo}"></div>
     <div class="login-form">
         <h2 class="hero-title">Your wishes</h2>
         <button class="Goback" type="button" onclick="window.history.back()">Go back</button>
@@ -20,7 +22,6 @@
                 <th>Amount</th>
                 <th>URL</th>
                 <th>Description</th>
-                <th>Action</th>
             </tr>
             </thead>
             <tr th:each="product : ${products}">
@@ -32,15 +33,6 @@
                     <a class="product-url" th:href="${product.url}" th:text="${product.url}"></a>
                 </td>
                 <td th:text="${product.description}"></td>
-                <td>
-                    <form action="/edit_product1" method="get">
-                        <input type="hidden" name="productId" th:value="${product.productId}">
-                    </form>
-                    <form action="/confirm_delete_product" method="post">
-                        <input type="hidden" name="wishlistId" th:value="${wishlist.wishlistId}">
-                        <input type="hidden" name="productId" th:value="${product.productId}">
-                    </form>
-                </td>
             </tr>
         </table>
     </div>

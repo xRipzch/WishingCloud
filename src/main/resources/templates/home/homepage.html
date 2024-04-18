@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}" />
+
     <link rel="stylesheet" type="text/css" href="/homepagestyle.css">
 </head>
 <body>
+<div th:insert="~{home/logo :: logo}"></div>
 <section class="hero">
     <div class="hero-content">
         <h3> Welcome <span th:text="${user.firstName}"></span></h3> <h4> Create a new wishlist </h4>

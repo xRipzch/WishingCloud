@@ -1,5 +1,5 @@
 package com.example.wishingcloud.repositories;
-
+import org.springframework.dao.DuplicateKeyException;
 import com.example.wishingcloud.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -66,4 +66,15 @@ public class UserRepository {
         }
     }
 
+    public String checkEmail(String email) {
+        try {
+            String query = "SELECT email FROM users WHERE email = ?;";
+            return jdbcTemplate.queryForObject(query, String.class, email);
+        } catch (EmptyResultDataAccessException e) {
+            return "UserNotFound";
+        }
+        catch (DuplicateKeyException e) {
+            return "DuplicateKey";
+        }
+    }
 }

@@ -42,6 +42,15 @@ public class UserService {
         return userRepository.getUserId(email);
     }
 
+    public String checkEmail(String email) {
+        try {
+            userRepository.checkEmail(email);
+            return "EmailExists";
+        } catch (EmptyResultDataAccessException e) {
+            return "EmailDoesNotExist";
+        }
+    }
+
     //public int getUserId(String firstName) {
        // return userRepository.getUserId(firstName);
   //  }

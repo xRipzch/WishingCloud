@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}" />
 
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/productstyle.css">
 </head>
 <body>
-<button type="button" onclick="window.history.back()">Go back</button>
-<!--todo create a page where user can add a product to a wishlist -->
+<div th:insert="~{home/logo :: logo}"></div>
 <div class="container">
-
+    <button class="Goback" type="button" onclick="window.history.back()">Go back</button>
     <div class="product-form">
         <h1 class="hero-title">Wishes</h1>
         <h1> Add a product to your wishlist </h1>
@@ -65,12 +65,12 @@
                 <td th:text="${product.amount}"></td>
                 <td th:hidden="true" th:text="${product.productId}"></td>
                 <td>
-                    <a class="product-url" th:href="${product.url}" th:text="${product.url}">Link</a>
+                    <a class="product-url" th:href="${product.url}">Link to the wish</a>
                 </td>
                 <td th:text="${product.description}"></td>
 
                 <td>
-                    <form action="/edit_product" method="get">
+                    <form action="/edit_product1" method="get">
                         <input type="hidden" name="productId" th:value="${product.productId}">
                         <button type="submit">Edit</button>
 

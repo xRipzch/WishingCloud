@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Product</title>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}" />
+
 </head>
 <body>
 <div th:insert="~{home/logo :: logo}"></div>
+<div th:insert="~{home/logo :: logo}"></div>
+<link rel="stylesheet" type="text/css" href="/editstyle.css">
     <section class="hero">
         <button class="Goback" type="button" onclick="window.history.back()">Go back</button>
         <h1> Edit your product </h1>
         <div class="product-form">
-            <form class="product-form" action="/addProduct" method="post">
+            <form class="product-form" action="/edit_product2" method="post">
                 <label class="" for="name"> Product name </label>
                 <input class="form" type="text" id="name" name="productName"
                        placeholder="write your product name here...">
