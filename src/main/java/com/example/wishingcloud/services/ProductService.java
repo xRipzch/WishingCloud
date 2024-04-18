@@ -34,6 +34,7 @@ public class ProductService {
 
     }
 
+
     public int getWishlistIdFromProduct(int productId) {
       return productRepository.getWishListIdFromProduct(productId);
 

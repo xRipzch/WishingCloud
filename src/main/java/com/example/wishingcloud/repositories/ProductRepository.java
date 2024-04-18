@@ -47,4 +47,5 @@ public class ProductRepository {
         String query ="SELECT wishlist_id from products WHERE product_id = ?;";
         return jdbcTemplate.queryForObject(query, Integer.class, productId);
     }
+
 }

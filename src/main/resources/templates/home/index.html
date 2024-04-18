@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WishVault</title>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}" />
+
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
+<div th:insert="~{home/logo :: logo}"></div>
 <section class="hero">
     <h2 class="hero-title">Wish Vault</h2>
     <p class="hero-text">Write down your wish and let it soar among the clouds.</p>
@@ -14,7 +17,7 @@
         <div class="wish-form-textarea">
             <form th:action="@{/searchWish}" method="post">
                 <label for="wish">Enter your wish:</label>
-                <input type="text" id="wish" name="wish" placeholder="Write your wish here...">
+                <input type="text" id="wish" name="wish" placeholder="Write your wish here... [PRANK BOX]">
                 <button type="submit">Search Wish</button>
             </form>
         </div>

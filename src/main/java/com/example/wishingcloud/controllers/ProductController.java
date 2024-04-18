@@ -64,4 +64,7 @@ public class ProductController {
         int wishlistId = productService.getWishlistIdFromProduct(productId);
         return "redirect:/product?wishlistId=" + wishlistId;
     }
+
+
+
 }

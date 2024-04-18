@@ -18,6 +18,6 @@ public class WishController {
 }
 
 
-// We use URLEncoder.encode to ensure the user's wish is safely included in the URL. This prevents potential issues with special characters.
-// The method then returns a redirect string that points to Google Images search for the encoded wish term.
-// We append &tbm=isch to the URL to specifically indicate searching for images.
+/*Vi bruger URLEncoder.encode til at sikre, at brugerens ønske sikkert inkluderes i URL'en. Dette forhindrer potentielle problemer med specielle tegn.
+Metoden returnerer derefter en omdirigeringsstreng, der peger på Google Billeder-søgning efter det kodede ønsketerm.
+Vi tilføjer &tbm=isch til URL'en for specifikt at angive søgning efter billeder.*/
