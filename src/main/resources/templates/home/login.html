@@ -14,8 +14,9 @@
     <div class="login-form">
         <h1>Welcome to WishVault</h1>
         <form th:action="@{/validate}" method="post" class="login-frame">
+            <p th:text ="${error}" ></p>
             <div class="input-group">
-                <p th:text ="${error}" ></p>
+
                 <label for="email"></label>
                 <input type="email" id="email" name="email" placeholder="Email" required>
             </div>
