@@ -3,6 +3,7 @@ package com.example.wishingcloud.services;
 import com.example.wishingcloud.models.User;
 import com.example.wishingcloud.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -43,17 +44,12 @@ public class UserService {
     }
 
     public String checkEmail(String email) {
-        try {
-            if (
-                    userRepository.checkEmail(email).equals("DuplicateKey")) {
-                return "EmailExists";
-            } else {
-                return "EmailDoesNotExist";
-            }
-        } catch (EmptyResultDataAccessException e) {
-
-
-        } return "EmailDoesNotExist";
+        String result = userRepository.checkEmail(email);
+        if (result.equals("EmailExists")) {
+            return "EmailExists";
+        } else {
+            return "EmailDoesNotExist";
+        }
     }
 }
 

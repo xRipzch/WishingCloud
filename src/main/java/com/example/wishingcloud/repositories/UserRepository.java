@@ -35,7 +35,6 @@ public class UserRepository {
     }
 
 
-
     public List<User> getUsers() { // TODO SKAL ÆNDRES??
         String sql = "SELECT * FROM users";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
@@ -48,13 +47,14 @@ public class UserRepository {
         return jdbcTemplate.queryForObject(query, rowMapper, userId);
 
     }
+
     public Integer getUserId(String email) {
         String query = "SELECT user_id FROM users WHERE email = ?;";
         return jdbcTemplate.queryForObject(query, Integer.class, email);
     }
     //public Integer getUserId (String firstName) {
-        //String query = "SELECT user_id FROM users where first_name = ?;";
-        //return jdbcTemplate.queryForObject(query, Integer.class, firstName);
+    //String query = "SELECT user_id FROM users where first_name = ?;";
+    //return jdbcTemplate.queryForObject(query, Integer.class, firstName);
     //}
 
     public String checkPass(String email) {
@@ -67,14 +67,16 @@ public class UserRepository {
     }
 
     public String checkEmail(String email) {
+        String query = "SELECT email FROM users WHERE email = ?;";
         try {
-            String query = "SELECT email FROM users WHERE email = ?;";
-            return jdbcTemplate.queryForObject(query, String.class, email);
+            String existingEmail = jdbcTemplate.queryForObject(query, String.class, email);
+            if (existingEmail != null) {
+                return "EmailExists";
+            } else {
+                return "UserNotFound";
+            }
         } catch (EmptyResultDataAccessException e) {
             return "UserNotFound";
-        }
-        catch (DuplicateKeyException e) {
-            return "DuplicateKey";
         }
     }
 }
