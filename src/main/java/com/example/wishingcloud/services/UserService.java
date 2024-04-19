@@ -14,27 +14,27 @@ public class UserService {
     UserRepository userRepository;
 
 
-    public void addUser(User u){
+    public void addUser(User u) {
         userRepository.addUser(u);
     }
 
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return userRepository.getUsers();
     }
 
-    public User getUser(int userId){
+    public User getUser(int userId) {
         return userRepository.getUser(userId);
     }
 
     public String checkPass(String email, String password) {
-            String dbPassword = userRepository.checkPass(email);
-            if(password.equals(dbPassword)){
-                return "UserApproved";
-            } else if (dbPassword.equals("UserNotFound")){
-                return "NoUserFound";
-            } else {
-                return "WrongPassWord";
-            }
+        String dbPassword = userRepository.checkPass(email);
+        if (password.equals(dbPassword)) {
+            return "UserApproved";
+        } else if (dbPassword.equals("UserNotFound")) {
+            return "NoUserFound";
+        } else {
+            return "WrongPassWord";
+        }
     }
 
 
@@ -44,29 +44,20 @@ public class UserService {
 
     public String checkEmail(String email) {
         try {
-            userRepository.checkEmail(email);
-            return "EmailExists";
-        } catch (EmptyResultDataAccessException e) {
-            return "EmailDoesNotExist";
-        }
-    }
-
-    //public int getUserId(String firstName) {
-       // return userRepository.getUserId(firstName);
-  //  }
-
-    /*public boolean checkPass(String email, String password) {
-        try {
-            String dbPassword = userRepository.checkPass(email);
-            if(password.equals(dbPassword)){
-                return true;
-            }else if (dbPassword == null) {
-                return false;
+            if (
+                    userRepository.checkEmail(email).equals("DuplicateKey")) {
+                return "EmailExists";
             } else {
-                return false;
+                return "EmailDoesNotExist";
             }
-        } catch (Exception e) {
-            return false;
-        }
-    }*/
+        } catch (EmptyResultDataAccessException e) {
+
+
+        } return "EmailDoesNotExist";
+    }
 }
+
+
+
+
+
